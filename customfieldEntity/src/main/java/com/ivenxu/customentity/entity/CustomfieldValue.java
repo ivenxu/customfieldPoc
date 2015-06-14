@@ -6,6 +6,7 @@
 package com.ivenxu.customentity.entity;
 
 import java.io.Serializable;
+import java.util.UUID;
 import javax.persistence.*;
 
 
@@ -26,8 +27,8 @@ public class CustomfieldValue implements Serializable{
     private CustomfieldDefinition customfieldDefinition;
     
     public CustomfieldValue(){}
-    public CustomfieldValue(long subId, long instanceId, long customfieldDefinitionId){
-        id = new CustomfieldValueId(subId, instanceId, customfieldDefinitionId);
+    public CustomfieldValue(UUID uuid, long instanceId, long customfieldDefinitionId){
+        id = new CustomfieldValueId(uuid, instanceId, customfieldDefinitionId);
     }
 
 

@@ -7,10 +7,12 @@ package com.ivenxu.entitybasic;
 
 import com.ivenxu.customentity.entity.CustomfieldDefinition;
 import com.ivenxu.customentity.entity.CustomfieldValue;
+import com.ivenxu.customentity.entity.CustomfieldValueId;
 import com.ivenxu.customentity.entity.EntityMetadata;
 import com.ivenxu.entity.test.CustomfieldSupportedEntity1;
 import java.util.HashSet;
 import java.util.Set;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 /**
@@ -38,6 +40,19 @@ public class CustomfieldSupportedEntityTest extends BaseEntityTest {
          em.persist(meta);
          em.persist(custfldDef);
          em.persist(custValue);
+//         et.commit();
+//         et.begin();
+         CustomfieldSupportedEntity1 getEntity = em.find(CustomfieldSupportedEntity1.class, target.getId());
+         assertEquals(getEntity.getCustomfieldInfo().getCustomfields().get(custfldDef), custValue);
+         getEntity.getCustomfieldInfo().getCustomfields().get(custfldDef).setValue("200");
+         CustomfieldValue custfldValueGet = em.find(CustomfieldValue.class, 
+                 new CustomfieldValueId(custValue.getId().getUuid(), custValue.getId().getInstanceId(), custValue.getId().getCustomfieldDefinitionId()));
+         assertEquals(custfldValueGet, custValue);
+         em.remove(custfldValueGet);
+         em.remove(custfldDef);
+         em.remove(meta);
+         em.remove(target);
          et.commit();
+         
      }
 }

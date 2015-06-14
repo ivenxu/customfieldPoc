@@ -50,5 +50,7 @@ public abstract class BusinessIdEntity  implements Serializable{
         return uuid;
     }
     
-    
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
+    }
 }

@@ -3,6 +3,7 @@ package com.ivenxu.customentity.entity;
 
 import com.ivenxu.entitybasic.BusinessIdEntity;
 import java.io.Serializable;
+import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.GeneratedValue;
@@ -20,10 +21,11 @@ public class CustomfieldValueId extends BusinessIdEntity implements Serializable
     private long customfieldDefinitionId;
     
     public CustomfieldValueId(){}
-    public CustomfieldValueId(long subId, long instanceId, long customfieldDefinitionId){
+    public CustomfieldValueId(UUID uuid, long instanceId, long customfieldDefinitionId){
         super();
         this.instanceId = instanceId;
         this.customfieldDefinitionId = customfieldDefinitionId;
+        this.setUuid(uuid);
     }
     
     @Override
