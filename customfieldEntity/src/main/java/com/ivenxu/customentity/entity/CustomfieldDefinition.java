@@ -25,7 +25,7 @@ public class CustomfieldDefinition extends BusinessIdEntity  implements Serializ
     @Column(name="CUSTFLD_INDEX")
     private int index;
     @ManyToOne
-    @JoinColumn(name="ENTITYMeTA_ID")
+    @JoinColumn(name="ENTITYMETA_ID")
     private EntityMetadata entityMetadata;
 
     /**
@@ -106,10 +106,6 @@ public class CustomfieldDefinition extends BusinessIdEntity  implements Serializ
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
     
     

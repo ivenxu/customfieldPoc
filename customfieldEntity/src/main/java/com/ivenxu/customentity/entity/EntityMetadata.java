@@ -29,9 +29,6 @@ public class EntityMetadata extends BusinessIdEntity implements Serializable {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     /**
      * @return the entityName
